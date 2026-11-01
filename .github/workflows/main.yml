@@ -12,3 +12,7 @@ jobs:
       #Step 1: Checkout the repository
       - name: Checkout Repository
         uses: actions/checkout@v3
+
+      - name: Check Leader
+        if: ${{github.actor == 'tommywu2'}}
+        run: sed -i '/<\/body>/i <p>Updated by Team Leader on '"$(date)"'</p>' index.html
