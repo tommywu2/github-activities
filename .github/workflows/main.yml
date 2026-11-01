@@ -16,3 +16,6 @@ jobs:
       - name: Check Leader
         if: ${{github.actor == 'tommywu2'}}
         run: sed -i '/<\/body>/i <p>Updated by Team Leader on '"$(date)"'</p>' index.html
+
+      - name: Update Readme
+        run: echo "### Updated by ${{ github.actor }} on $(date '+%Y-%m-%d %H:%M:%S') [Commit: $(git rev-parse --short HEAD)]" >> README.md
